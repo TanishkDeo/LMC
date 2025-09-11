@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Alex — Personal Site</title>
+  <link rel="stylesheet" href="/styles.css" />
+  <meta name="description" content="Alex — web developer. Portfolio, about, and contact." />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a class="brand" href="/">alex</a>
+      <nav>
+        <a href="/about.html">About</a>
+        <a href="/contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="hero container">
+    <h1>Hi — I’m Alex 👋</h1>
+    <p class="lead">I build fast, accessible websites and experiment with modern web tooling.</p>
+
+    <div class="buttons">
+      <a class="btn primary" href="/about.html">About me</a>
+      <a class="btn" href="/contact.html">Get in touch</a>
+    </div>
+
+    <section class="cards">
+      <article class="card">
+        <h3>Work</h3>
+        <p>Building web apps with usability & performance in mind.</p>
+      </article>
+      <article class="card">
+        <h3>Writing</h3>
+        <p>Short posts about frontend tips and small experiments.</p>
+      </article>
+      <article class="card">
+        <h3>Hobbies</h3>
+        <p>Hiking, coffee, and tinkering with indie projects.</p>
+      </article>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <small>© <span id="year"></span> Alex — <a href="/contact.html">Contact</a></small>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
