@@ -20,46 +20,57 @@
     body {
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
       line-height: 1.6;
-      color: #1d1d1f;
-      background: #fbfbfd;
+      color: #333;
+      background: #fff;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
     }
 
     /* --- Typography --- */
-    h1 { font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 700; line-height: 1.1; }
-    h2 { font-size: clamp(1.8rem, 3vw, 2.5rem); font-weight: 600; line-height: 1.2; }
-    h3 { font-size: 1.5rem; font-weight: 600; line-height: 1.3; }
-    h4 { font-size: 1.25rem; font-weight: 500; }
+    h1 { 
+      font-size: 2.5rem; 
+      font-weight: 400; 
+      line-height: 1.2; 
+      margin-bottom: 0.5rem;
+    }
+    h2 { 
+      font-size: 1.5rem; 
+      font-weight: 500; 
+      line-height: 1.3; 
+      margin-bottom: 1.5rem;
+      color: #6B46C1;
+    }
+    h3 { 
+      font-size: 1.1rem; 
+      font-weight: 600; 
+      line-height: 1.3; 
+      margin-bottom: 0.5rem;
+    }
 
     /* --- Header & Navigation --- */
     .header {
-      position: fixed;
+      background: #fff;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+      padding: 0;
+      position: sticky;
       top: 0;
-      left: 0;
-      right: 0;
-      background: rgba(251, 251, 253, 0.8);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
       z-index: 1000;
-      transition: all 0.3s ease;
     }
 
     .nav {
-      max-width: 1200px;
+      max-width: 900px;
       margin: 0 auto;
       padding: 0 2rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      height: 70px;
+      height: 60px;
     }
 
     .logo {
-      font-weight: 600;
-      font-size: 1.2rem;
-      color: #1d1d1f;
+      font-weight: 500;
+      font-size: 1.1rem;
+      color: #333;
     }
 
     .nav-links {
@@ -68,432 +79,334 @@
     }
 
     .nav-links a {
-      color: #1d1d1f;
+      color: #666;
       text-decoration: none;
       font-weight: 400;
+      font-size: 0.9rem;
       transition: color 0.2s ease;
-      position: relative;
     }
 
     .nav-links a:hover {
-      color: #007aff;
+      color: #6B46C1;
     }
 
-    .nav-links a::after {
-      content: '';
-      position: absolute;
-      bottom: -5px;
-      left: 0;
-      width: 0;
-      height: 2px;
-      background: #007aff;
-      transition: width 0.2s ease;
-    }
-
-    .nav-links a:hover::after {
-      width: 100%;
+    /* --- Main Content --- */
+    .main {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 2rem;
     }
 
     /* --- Hero Section --- */
     .hero {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      padding: 0 2rem;
-      background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero::before {
-      content: '';
-      position: absolute;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
-      background: radial-gradient(circle, rgba(0, 122, 255, 0.1) 0%, transparent 50%);
-      animation: float 20s ease-in-out infinite;
-    }
-
-    @keyframes float {
-      0%, 100% { transform: translateY(0px) rotate(0deg); }
-      50% { transform: translateY(-20px) rotate(180deg); }
-    }
-
-    .hero-content {
-      position: relative;
-      z-index: 2;
-      max-width: 800px;
+      padding: 2rem 0 3rem 0;
+      text-align: left;
     }
 
     .hero h1 {
-      margin-bottom: 1.5rem;
-      background: linear-gradient(135deg, #1d1d1f 0%, #007aff 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      animation: fadeInUp 1s ease-out;
+      color: #333;
+      margin-bottom: 1rem;
     }
 
     .hero .subtitle {
-      font-size: 1.5rem;
-      font-weight: 400;
-      color: #6b7280;
-      margin-bottom: 2rem;
-      animation: fadeInUp 1s ease-out 0.2s both;
-    }
-
-    .hero .description {
       font-size: 1.1rem;
-      color: #6b7280;
-      margin-bottom: 3rem;
-      max-width: 600px;
-      animation: fadeInUp 1s ease-out 0.4s both;
+      font-weight: 400;
+      color: #666;
+      margin-bottom: 2rem;
     }
 
-    .cta-buttons {
+    .contact-links {
       display: flex;
       gap: 1rem;
-      justify-content: center;
-      flex-wrap: wrap;
-      animation: fadeInUp 1s ease-out 0.6s both;
+      margin-top: 1rem;
     }
 
-    .btn {
-      padding: 1rem 2rem;
-      border-radius: 30px;
+    .contact-links a {
+      color: #6B46C1;
       text-decoration: none;
+      font-size: 0.9rem;
+    }
+
+    .contact-links a:hover {
+      text-decoration: underline;
+    }
+
+    /* --- News Section --- */
+    .news-item {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+      align-items: flex-start;
+    }
+
+    .news-date {
+      color: #666;
       font-weight: 500;
-      transition: all 0.3s ease;
-      border: none;
-      cursor: pointer;
-      font-size: 1rem;
+      font-size: 0.9rem;
+      min-width: 80px;
+      flex-shrink: 0;
     }
 
-    .btn-primary {
-      background: #007aff;
-      color: white;
-      box-shadow: 0 10px 25px rgba(0, 122, 255, 0.3);
+    .news-content {
+      flex: 1;
     }
 
-    .btn-primary:hover {
-      background: #0056b3;
-      transform: translateY(-2px);
-      box-shadow: 0 15px 35px rgba(0, 122, 255, 0.4);
+    .news-content p {
+      margin: 0;
+      color: #333;
+      font-size: 0.95rem;
     }
 
-    .btn-secondary {
-      background: rgba(255, 255, 255, 0.9);
-      color: #1d1d1f;
-      border: 1px solid rgba(0, 0, 0, 0.1);
-      backdrop-filter: blur(10px);
+    .badge {
+      display: inline-block;
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+      font-size: 0.7rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      margin-left: 0.5rem;
     }
 
-    .btn-secondary:hover {
-      background: white;
-      transform: translateY(-2px);
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    .badge-paper {
+      background: rgba(59, 130, 246, 0.1);
+      color: #3B82F6;
+    }
+
+    .badge-award {
+      background: rgba(249, 115, 22, 0.1);
+      color: #F97316;
+    }
+
+    .badge-milestone {
+      background: rgba(236, 72, 153, 0.1);
+      color: #EC4899;
     }
 
     /* --- Section Styles --- */
     .section {
-      padding: 6rem 2rem;
-      max-width: 1200px;
-      margin: 0 auto;
+      margin-bottom: 3rem;
     }
 
-    .section-header {
-      text-align: center;
-      margin-bottom: 4rem;
+    .section h2 {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
     }
 
-    .section-header h2 {
-      margin-bottom: 1rem;
-      color: #1d1d1f;
-    }
-
-    .section-header p {
+    .sparkle {
       font-size: 1.2rem;
-      color: #6b7280;
-      max-width: 600px;
-      margin: 0 auto;
     }
 
-    /* --- Cards --- */
-    .cards-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
-      margin-top: 3rem;
+    /* --- Research Section --- */
+    .research-intro {
+      font-style: italic;
+      color: #666;
+      margin-bottom: 1.5rem;
+      font-size: 0.95rem;
     }
 
-    .card {
-      background: white;
-      border-radius: 20px;
-      padding: 2.5rem;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-      border: 1px solid rgba(0, 0, 0, 0.05);
-      transition: all 0.3s ease;
-      position: relative;
-      overflow: hidden;
+    .research-themes {
+      margin-top: 1rem;
     }
 
-    .card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 4px;
-      background: linear-gradient(90deg, #007aff, #5ac8fa);
-      transform: scaleX(0);
-      transition: transform 0.3s ease;
+    .research-themes ol {
+      padding-left: 1.2rem;
     }
 
-    .card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    .research-themes li {
+      margin-bottom: 1rem;
+      color: #333;
     }
 
-    .card:hover::before {
-      transform: scaleX(1);
+    .research-themes .theme-title {
+      font-weight: 600;
+      color: #333;
     }
 
-    .card-icon {
-      width: 60px;
-      height: 60px;
-      border-radius: 12px;
-      background: linear-gradient(135deg, #007aff, #5ac8fa);
+    .research-themes .theme-description {
+      margin-top: 0.3rem;
+      color: #666;
+    }
+
+    .highlight-link {
+      color: #6B46C1;
+      text-decoration: none;
+    }
+
+    .highlight-link:hover {
+      text-decoration: underline;
+    }
+
+    /* --- Experience Section --- */
+    .experience-item {
+      margin-bottom: 2rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    }
+
+    .experience-item:last-child {
+      border-bottom: none;
+    }
+
+    .experience-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .company-logo {
+      width: 40px;
+      height: 40px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      border-radius: 6px;
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-bottom: 1.5rem;
-      font-size: 1.5rem;
+      color: white;
+      font-size: 0.8rem;
+      font-weight: 500;
+      flex-shrink: 0;
     }
 
-    .card h3 {
-      margin-bottom: 1rem;
-      color: #1d1d1f;
+    .experience-details h3 {
+      color: #333;
     }
 
-    .card p {
-      color: #6b7280;
-      margin-bottom: 1rem;
+    .company-name {
+      color: #6B46C1;
+      font-weight: 500;
     }
 
-    .card ul {
-      list-style: none;
-      padding: 0;
-    }
-
-    .card li {
-      color: #6b7280;
+    .location-date {
+      color: #666;
+      font-size: 0.85rem;
       margin-bottom: 0.5rem;
-      padding-left: 1.5rem;
-      position: relative;
     }
 
-    .card li::before {
-      content: '→';
-      position: absolute;
-      left: 0;
-      color: #007aff;
-      font-weight: 600;
+    .experience-item ul {
+      padding-left: 1.2rem;
+      margin-top: 0.5rem;
     }
 
-    /* --- Experience Timeline --- */
-    .timeline {
-      position: relative;
-      padding-left: 2rem;
+    .experience-item li {
+      margin-bottom: 0.3rem;
+      color: #666;
+      font-size: 0.9rem;
     }
 
-    .timeline::before {
-      content: '';
-      position: absolute;
-      left: 0;
-      top: 0;
-      bottom: 0;
-      width: 2px;
-      background: linear-gradient(180deg, #007aff, #5ac8fa);
-    }
-
-    .timeline-item {
-      position: relative;
-      margin-bottom: 3rem;
-      padding-left: 3rem;
-    }
-
-    .timeline-item::before {
-      content: '';
-      position: absolute;
-      left: -8px;
-      top: 0;
-      width: 16px;
-      height: 16px;
-      border-radius: 50%;
-      background: #007aff;
-      box-shadow: 0 0 0 4px white, 0 0 0 8px rgba(0, 122, 255, 0.2);
-    }
-
-    .timeline-content {
-      background: white;
-      padding: 2rem;
-      border-radius: 15px;
-      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
-      border: 1px solid rgba(0, 0, 0, 0.05);
-    }
-
-    /* --- Project Gallery --- */
-    .project-grid {
+    /* --- Projects Section --- */
+    .projects-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-      gap: 2.5rem;
-      margin-top: 3rem;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1rem;
     }
 
     .project-card {
-      background: white;
-      border-radius: 20px;
+      background: #fff;
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      border-radius: 8px;
       overflow: hidden;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-      border: 1px solid rgba(0, 0, 0, 0.05);
-      transition: all 0.3s ease;
+      transition: all 0.2s ease;
     }
 
     .project-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.1);
+      border-color: #6B46C1;
+      box-shadow: 0 4px 12px rgba(107, 70, 193, 0.1);
     }
 
     .project-image {
-      height: 200px;
+      height: 140px;
       background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .project-image img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 0.8rem;
+      text-align: center;
     }
 
     .project-content {
-      padding: 2rem;
+      padding: 1rem;
+    }
+
+    .project-content h3 {
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .project-content p {
+      color: #666;
+      font-size: 0.85rem;
+      margin-bottom: 0.8rem;
     }
 
     .tech-stack {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.5rem;
-      margin-top: 1rem;
+      gap: 0.3rem;
     }
 
     .tech-tag {
-      background: rgba(0, 122, 255, 0.1);
-      color: #007aff;
-      padding: 0.3rem 0.8rem;
-      border-radius: 20px;
-      font-size: 0.8rem;
+      background: rgba(107, 70, 193, 0.1);
+      color: #6B46C1;
+      padding: 0.2rem 0.5rem;
+      border-radius: 12px;
+      font-size: 0.7rem;
       font-weight: 500;
     }
 
     /* --- Skills Section --- */
     .skills-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 2rem;
-      margin-top: 3rem;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
     }
 
     .skill-category {
-      background: white;
-      padding: 2rem;
-      border-radius: 15px;
-      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
-      border: 1px solid rgba(0, 0, 0, 0.05);
+      background: #fff;
+      padding: 1rem;
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      border-radius: 8px;
     }
 
     .skill-category h4 {
-      margin-bottom: 1rem;
-      color: #1d1d1f;
+      margin-bottom: 0.8rem;
+      color: #333;
+      font-size: 0.9rem;
+      font-weight: 600;
     }
 
     .skill-tags {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.5rem;
+      gap: 0.3rem;
     }
 
     .skill-tag {
       background: rgba(0, 0, 0, 0.05);
-      color: #1d1d1f;
-      padding: 0.5rem 1rem;
-      border-radius: 25px;
-      font-size: 0.9rem;
+      color: #666;
+      padding: 0.3rem 0.6rem;
+      border-radius: 12px;
+      font-size: 0.75rem;
       transition: all 0.2s ease;
     }
 
     .skill-tag:hover {
-      background: #007aff;
+      background: #6B46C1;
       color: white;
-      transform: translateY(-1px);
     }
 
     /* --- Footer --- */
     .footer {
-      background: #1d1d1f;
-      color: white;
+      margin-top: 4rem;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(0, 0, 0, 0.1);
       text-align: center;
-      padding: 3rem 2rem;
-      margin-top: 6rem;
-    }
-
-    .footer-content {
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .social-links {
-      display: flex;
-      justify-content: center;
-      gap: 1.5rem;
-      margin-bottom: 2rem;
-    }
-
-    .social-link {
-      display: inline-block;
-      padding: 0.8rem;
-      background: rgba(255, 255, 255, 0.1);
-      border-radius: 50%;
-      color: white;
-      text-decoration: none;
-      transition: all 0.3s ease;
-    }
-
-    .social-link:hover {
-      background: #007aff;
-      transform: translateY(-2px);
-    }
-
-    /* --- Animations --- */
-    @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(30px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    .fade-in-up {
-      animation: fadeInUp 0.8s ease-out;
+      color: #666;
+      font-size: 0.85rem;
     }
 
     /* --- Responsive Design --- */
@@ -506,43 +419,27 @@
         display: none;
       }
       
+      .main {
+        padding: 1rem;
+      }
+      
       .hero {
-        padding: 0 1rem;
-        min-height: 90vh;
+        padding: 1rem 0 2rem 0;
       }
       
-      .section {
-        padding: 4rem 1rem;
-      }
-      
-      .cards-grid {
-        grid-template-columns: 1fr;
-      }
-      
-      .project-grid {
-        grid-template-columns: 1fr;
-      }
-      
-      .cta-buttons {
+      .experience-header {
         flex-direction: column;
-        align-items: center;
+        align-items: flex-start;
+        gap: 0.5rem;
       }
       
-      .btn {
-        width: 200px;
-        text-align: center;
+      .projects-grid {
+        grid-template-columns: 1fr;
       }
-    }
-
-    /* --- Placeholder Image Styles --- */
-    .placeholder-img {
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      font-weight: 500;
-      font-size: 0.9rem;
+      
+      .skills-grid {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
@@ -552,293 +449,333 @@
     <nav class="nav">
       <div class="logo">Tanishk Deo</div>
       <div class="nav-links">
-        <a href="#about">About</a>
-        <a href="#education">Education</a>
-        <a href="#experience">Experience</a>
-        <a href="#research">Research</a>
-        <a href="#projects">Projects</a>
-        <a href="#skills">Skills</a>
-        <a href="#contact">Contact</a>
+        <a href="#about">about</a>
+        <a href="#news">news</a>
+        <a href="#research">research</a>
+        <a href="#experience">experience</a>
+        <a href="#projects">projects</a>
+        <a href="#skills">skills</a>
       </div>
     </nav>
   </header>
 
-  <!-- Hero Section -->
-  <section class="hero">
-    <div class="hero-content">
-      <h1>Hello, I'm Tanishk Deo</h1>
-      <p class="subtitle">Machine Learning Engineer</p>
-      <p class="description">
-        Passionate about building intelligent systems that solve real-world problems. 
-        Currently pursuing B.S./M.S. in Computer Science at Georgia Tech with a focus on 
-        machine learning, software engineering, and research.
-      </p>
-      <div class="cta-buttons">
-        <a href="#contact" class="btn btn-primary">Get in Touch</a>
-        <a href="#projects" class="btn btn-secondary">View My Work</a>
+  <!-- Main Content -->
+  <main class="main">
+    <!-- Hero Section -->
+    <section class="hero">
+      <h1>Tanishk Deo</h1>
+      <p class="subtitle">Machine Learning Engineer | Software Developer | Researcher</p>
+      <div class="contact-links">
+        <a href="mailto:tanishk.deo@gmail.com">email</a>
+        <a href="https://linkedin.com/in/tanishkdeo" target="_blank">linkedin</a>
+        <a href="https://github.com/TanishkDeo" target="_blank">github</a>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- About Section -->
-  <section id="about" class="section">
-    <div class="section-header">
-      <h2>About Me</h2>
-      <p>Driven by curiosity and powered by code</p>
-    </div>
-    <div class="cards-grid">
-      <div class="card">
-        <div class="card-icon placeholder-img">🎓</div>
-        <h3>Student & Researcher</h3>
-        <p>Maintaining a perfect 4.0 GPA while conducting cutting-edge research in machine learning and robotics at Georgia Tech.</p>
-      </div>
-      <div class="card">
-        <div class="card-icon placeholder-img">🔬</div>
-        <h3>Innovation Focus</h3>
-        <p>Passionate about applying AI and ML to solve complex problems in healthcare, robotics, and mobile technology.</p>
-      </div>
-      <div class="card">
-        <div class="card-icon placeholder-img">🚀</div>
-        <h3>Industry Experience</h3>
-        <p>Proven track record with internships at Apple, building production systems and contributing to iOS 18 features.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Education -->
-  <section id="education" class="section">
-    <div class="section-header">
-      <h2>Education</h2>
-      <p>Building a strong foundation in computer science and machine learning</p>
-    </div>
-    <div class="card">
-      <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
-        <div class="placeholder-img" style="width: 60px; height: 60px; border-radius: 12px;">GT</div>
-        <div>
-          <h3>Georgia Institute of Technology</h3>
-          <p style="margin: 0; color: #6b7280;">B.S./M.S. Computer Science</p>
+    <!-- News + Updates -->
+    <section id="news" class="section">
+      <h2>News + Updates</h2>
+      
+      <div class="news-item">
+        <div class="news-date">Dec 2026</div>
+        <div class="news-content">
+          <p>Graduating with B.S./M.S. Computer Science from Georgia Institute of Technology with 4.0 GPA <span class="badge badge-milestone">milestone</span></p>
         </div>
       </div>
-      <div style="display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem;">
-        <div>
-          <p><strong>GPA:</strong> 4.0</p>
-          <p><strong>Location:</strong> Atlanta, GA</p>
-        </div>
-        <div>
-          <p><strong>Graduation:</strong> December 2026</p>
+
+      <div class="news-item">
+        <div class="news-date">Aug 2025</div>
+        <div class="news-content">
+          <p>Completed Machine Learning Engineer Internship at Apple, working on Applied LLMs research <span class="badge badge-paper">experience</span></p>
         </div>
       </div>
-    </div>
-  </section>
 
-  <!-- Experience -->
-  <section id="experience" class="section">
-    <div class="section-header">
+      <div class="news-item">
+        <div class="news-date">Aug 2024</div>
+        <div class="news-content">
+          <p>Released modular Siri MVVM architecture for iOS 18 during Apple internship <span class="badge badge-paper">shipped</span></p>
+        </div>
+      </div>
+
+      <div class="news-item">
+        <div class="news-date">2024</div>
+        <div class="news-content">
+          <p>Awarded IEEE Atlanta Section & Augusta University Awards for mobile health research <span class="badge badge-award">award</span></p>
+        </div>
+      </div>
+
+      <div class="news-item">
+        <div class="news-date">2021</div>
+        <div class="news-content">
+          <p>Published iOS health apps through Tenself LLC with 10K+ downloads <span class="badge badge-milestone">milestone</span></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Research -->
+    <section id="research" class="section">
+      <h2>Research <span class="sparkle">✨</span></h2>
+      <div class="research-intro">
+        My research focuses on: <em>How can we build intelligent systems that enhance human communication and capabilities while maintaining ethical AI practices?</em> I pursue this vision through three interrelated research themes:
+      </div>
+      
+      <div class="research-themes">
+        <ol>
+          <li>
+            <div class="theme-title">Machine Learning for Robotics</div>
+            <div class="theme-description">
+              I develop computational methods using inverse reinforcement learning (IRL) frameworks integrating SAC, IRL, and BC to improve robot path planning and autonomous navigation systems, with a focus on <a href="#" class="highlight-link">reinforcement learning</a> and <a href="#" class="highlight-link">behavioral cloning</a>.
+            </div>
+          </li>
+          <li>
+            <div class="theme-title">Applied AI for Healthcare</div>
+            <div class="theme-description">
+              I design novel mobile health applications for lung health measurement and pediatric hospital deployments, and evaluate these systems through real-world deployments across impactful applications including <a href="#" class="highlight-link">mobile health monitoring</a> 📱, <a href="#" class="highlight-link">medical app development</a> 🏥, and <a href="#" class="highlight-link">healthcare technology</a> 💊.
+            </div>
+          </li>
+          <li>
+            <div class="theme-title">Large Language Model Optimization</div>
+            <div class="theme-description">
+              I investigate performance optimization and inference routing for production LLM systems, with a focus on <a href="#" class="highlight-link">KV cache optimization</a>, <a href="#" class="highlight-link">multimodal evaluation</a>, and <a href="#" class="highlight-link">dynamic routing</a>.
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- Experience -->
+    <section id="experience" class="section">
       <h2>Experience</h2>
-      <p>Professional journey in technology and innovation</p>
-    </div>
-    <div class="timeline">
-      <div class="timeline-item">
-        <div class="timeline-content">
-          <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
-            <div class="placeholder-img" style="width: 50px; height: 50px; border-radius: 8px;">🍎</div>
-            <div>
-              <h3>Machine Learning Engineer Intern</h3>
-              <p style="margin: 0; color: #007aff; font-weight: 500;">Apple</p>
-            </div>
-          </div>
-          <p style="color: #6b7280; margin-bottom: 1rem;">Seattle, WA | May 2025 – Aug 2025</p>
-          <ul>
-            <li>Research engineering for Applied LLMs: fine-tuning, multi-step RAG, tool calling</li>
-            <li>Developing next-generation AI capabilities for Apple's ecosystem</li>
-          </ul>
-        </div>
-      </div>
       
-      <div class="timeline-item">
-        <div class="timeline-content">
-          <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
-            <div class="placeholder-img" style="width: 50px; height: 50px; border-radius: 8px;">🍎</div>
-            <div>
-              <h3>Machine Learning Engineer Intern</h3>
-              <p style="margin: 0; color: #007aff; font-weight: 500;">Apple</p>
-            </div>
+      <div class="experience-item">
+        <div class="experience-header">
+          <div class="company-logo">🍎</div>
+          <div class="experience-details">
+            <h3>Machine Learning Engineer Intern</h3>
+            <div class="company-name">Apple</div>
           </div>
-          <p style="color: #6b7280; margin-bottom: 1rem;">Seattle, WA | May 2024 – Aug 2024</p>
-          <ul>
-            <li>Engineered dynamic LLM inference routing in Swift/Obj-C for Siri</li>
-            <li>Leveraged multimodal auto-eval agents for Siri data pipelines</li>
-            <li>Released modular Siri MVVM architecture for iOS 18</li>
-          </ul>
         </div>
-      </div>
-      
-      <div class="timeline-item">
-        <div class="timeline-content">
-          <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
-            <div class="placeholder-img" style="width: 50px; height: 50px; border-radius: 8px;">🏥</div>
-            <div>
-              <h3>Software Engineer Intern</h3>
-              <p style="margin: 0; color: #007aff; font-weight: 500;">Emory Healthcare</p>
-            </div>
-          </div>
-          <p style="color: #6b7280; margin-bottom: 1rem;">Atlanta, GA | May 2022 – Aug 2023</p>
-          <ul>
-            <li>Led development of medical apps deployed in pediatric hospitals</li>
-            <li>Improved patient care through innovative healthcare technology solutions</li>
-          </ul>
-        </div>
-      </div>
-      
-      <div class="timeline-item">
-        <div class="timeline-content">
-          <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
-            <div class="placeholder-img" style="width: 50px; height: 50px; border-radius: 8px;">🚀</div>
-            <div>
-              <h3>Founder, Software Engineer</h3>
-              <p style="margin: 0; color: #007aff; font-weight: 500;">Tenself LLC</p>
-            </div>
-          </div>
-          <p style="color: #6b7280; margin-bottom: 1rem;">Atlanta, GA | Dec 2019 – Jan 2021</p>
-          <ul>
-            <li>Developed and published iOS health apps with 10K+ downloads</li>
-            <li>Built end-to-end mobile solutions from concept to App Store</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Research -->
-  <section id="research" class="section">
-    <div class="section-header">
-      <h2>Research</h2>
-      <p>Pushing the boundaries of AI and human-computer interaction</p>
-    </div>
-    <div class="cards-grid">
-      <div class="card">
-        <div class="card-icon placeholder-img">🤖</div>
-        <h3>LIDAR Lab | ML Research for Robotics</h3>
+        <div class="location-date">Seattle, WA | May 2025 – Aug 2025</div>
         <ul>
-          <li>Developed IRL framework integrating SAC, IRL, and BC</li>
-          <li>Improved prediction model for robot path planning</li>
-          <li>Advanced autonomous navigation systems</li>
+          <li>Research engineering for Applied LLMs: fine-tuning, multi-step RAG, tool calling</li>
+          <li>Developed next-generation AI capabilities for Apple's ecosystem</li>
         </ul>
       </div>
-      <div class="card">
-        <div class="card-icon placeholder-img">📱</div>
-        <h3>Ubicomp Health Lab | HCI & ML Research for Health</h3>
+
+      <div class="experience-item">
+        <div class="experience-header">
+          <div class="company-logo">🍎</div>
+          <div class="experience-details">
+            <h3>Machine Learning Engineer Intern</h3>
+            <div class="company-name">Apple</div>
+          </div>
+        </div>
+        <div class="location-date">Seattle, WA | May 2024 – Aug 2024</div>
         <ul>
-          <li>Designed mobile health app for lung health measurement</li>
-          <li>Awarded IEEE Atlanta Section & Augusta University Awards</li>
-          <li>Published research on mobile health monitoring</li>
+          <li>Engineered dynamic LLM inference routing in Swift/Obj-C for Siri</li>
+          <li>Leveraged multimodal auto-eval agents for Siri data pipelines</li>
+          <li>Released modular Siri MVVM architecture for iOS 18</li>
         </ul>
       </div>
-    </div>
-  </section>
 
-  <!-- Projects -->
-  <section id="projects" class="section">
-    <div class="section-header">
-      <h2>Featured Projects</h2>
-      <p>Innovative solutions built with cutting-edge technology</p>
-    </div>
-    <div class="project-grid">
-      <div class="project-card">
-        <div class="project-image placeholder-img">
-          [KV Cache Optimization Preview]
-        </div>
-        <div class="project-content">
-          <h3>Global KV Cache for LLM Inference</h3>
-          <p>Optimized KV cache implementation for transformer models, achieving 10% reduction in inference times through advanced caching strategies.</p>
-          <div class="tech-stack">
-            <span class="tech-tag">Hugging Face</span>
-            <span class="tech-tag">NVIDIA GPU Cloud</span>
-            <span class="tech-tag">Docker</span>
-            <span class="tech-tag">PyTorch</span>
+      <div class="experience-item">
+        <div class="experience-header">
+          <div class="company-logo">🏥</div>
+          <div class="experience-details">
+            <h3>Software Engineer Intern</h3>
+            <div class="company-name">Emory Healthcare</div>
           </div>
         </div>
+        <div class="location-date">Atlanta, GA | May 2022 – Aug 2023</div>
+        <ul>
+          <li>Led development of medical apps deployed in pediatric hospitals</li>
+          <li>Improved patient care through innovative healthcare technology solutions</li>
+        </ul>
       </div>
-      
-      <div class="project-card">
-        <div class="project-image placeholder-img">
-          [OpenLend Platform Screenshot]
-        </div>
-        <div class="project-content">
-          <h3>OpenLend (HackGT Winner)</h3>
-          <p>Peer-to-peer lending platform featuring a Random Forest credit risk model with 94% accuracy, enabling secure and intelligent lending decisions.</p>
-          <div class="tech-stack">
-            <span class="tech-tag">Python</span>
-            <span class="tech-tag">Django REST</span>
-            <span class="tech-tag">Go</span>
-            <span class="tech-tag">Swift</span>
-            <span class="tech-tag">Vertex AI</span>
-          </div>
-        </div>
-      </div>
-      
-      <div class="project-card">
-        <div class="project-image placeholder-img">
-          [Mobile Health App Interface]
-        </div>
-        <div class="project-content">
-          <h3>Mobile Health Monitoring</h3>
-          <p>Award-winning mobile application for lung health measurement, combining machine learning with intuitive user experience design.</p>
-          <div class="tech-stack">
-            <span class="tech-tag">Swift</span>
-            <span class="tech-tag">Core ML</span>
-            <span class="tech-tag">HealthKit</span>
-            <span class="tech-tag">Firebase</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- Skills -->
-  <section id="skills" class="section">
-    <div class="section-header">
+      <div class="experience-item">
+        <div class="experience-header">
+          <div class="company-logo">🚀</div>
+          <div class="experience-details">
+            <h3>Founder, Software Engineer</h3>
+            <div class="company-name">Tenself LLC</div>
+          </div>
+        </div>
+        <div class="location-date">Atlanta, GA | Dec 2019 – Jan 2021</div>
+        <ul>
+          <li>Developed and published iOS health apps with 10K+ downloads</li>
+          <li>Built end-to-end mobile solutions from concept to App Store</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects" class="section">
+      <h2>Projects</h2>
+      <div class="projects-grid">
+        <div class="project-card">
+          <div class="project-image">
+            [KV Cache Optimization Architecture]
+          </div>
+          <div class="project-content">
+            <h3>Global KV Cache for LLM Inference</h3>
+            <p>Optimized KV cache implementation for transformer models, achieving 10% reduction in inference times through advanced caching strategies.</p>
+            <div class="tech-stack">
+              <span class="tech-tag">Hugging Face</span>
+              <span class="tech-tag">NVIDIA GPU Cloud</span>
+              <span class="tech-tag">Docker</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="project-card">
+          <div class="project-image">
+            [OpenLend P2P Platform UI]
+          </div>
+          <div class="project-content">
+            <h3>OpenLend (HackGT)</h3>
+            <p>P2P lending platform with Random Forest credit risk model achieving 94% accuracy for intelligent lending decisions.</p>
+            <div class="tech-stack">
+              <span class="tech-tag">Python</span>
+              <span class="tech-tag">Django REST</span>
+              <span class="tech-tag">Go</span>
+              <span class="tech-tag">Swift</span>
+              <span class="tech-tag">Vertex AI</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="project-card">
+          <div class="project-image">
+            [LIDAR Lab Research Interface]
+          </div>
+          <div class="project-content">
+            <h3>IRL Framework for Robotics</h3>
+            <p>Advanced inverse reinforcement learning system integrating SAC, IRL, and BC for improved robot path planning.</p>
+            <div class="tech-stack">
+              <span class="tech-tag">PyTorch</span>
+              <span class="tech-tag">TorchRL</span>
+              <span class="tech-tag">OpenCV</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills" class="section">
       <h2>Technical Skills</h2>
-      <p>A comprehensive toolkit for building intelligent systems</p>
-    </div>
-    <div class="skills-grid">
-      <div class="skill-category">
-        <h4>Programming Languages</h4>
-        <div class="skill-tags">
-          <span class="skill-tag">Python</span>
-          <span class="skill-tag">Swift</span>
-          <span class="skill-tag">Java</span>
-          <span class="skill-tag">Go</span>
-          <span class="skill-tag">C/C++</span>
-          <span class="skill-tag">SQL</span>
-          <span class="skill-tag">JavaScript</span>
-          <span class="skill-tag">Kotlin</span>
+      <div class="skills-grid">
+        <div class="skill-category">
+          <h4>Languages</h4>
+          <div class="skill-tags">
+            <span class="skill-tag">Python</span>
+            <span class="skill-tag">Swift</span>
+            <span class="skill-tag">Java</span>
+            <span class="skill-tag">Go</span>
+            <span class="skill-tag">C/C++</span>
+            <span class="skill-tag">SQL</span>
+            <span class="skill-tag">JavaScript</span>
+            <span class="skill-tag">Kotlin</span>
+          </div>
+        </div>
+        
+        <div class="skill-category">
+          <h4>ML & AI</h4>
+          <div class="skill-tags">
+            <span class="skill-tag">PyTorch</span>
+            <span class="skill-tag">TorchRL</span>
+            <span class="skill-tag">NumPy</span>
+            <span class="skill-tag">Pandas</span>
+            <span class="skill-tag">Scikit-Learn</span>
+            <span class="skill-tag">OpenCV</span>
+          </div>
+        </div>
+        
+        <div class="skill-category">
+          <h4>Cloud & Tools</h4>
+          <div class="skill-tags">
+            <span class="skill-tag">AWS</span>
+            <span class="skill-tag">GCP</span>
+            <span class="skill-tag">Azure</span>
+            <span class="skill-tag">Docker</span>
+            <span class="skill-tag">Git</span>
+            <span class="skill-tag">CI/CD</span>
+          </div>
+        </div>
+        
+        <div class="skill-category">
+          <h4>Platforms</h4>
+          <div class="skill-tags">
+            <span class="skill-tag">iOS</span>
+            <span class="skill-tag">Android</span>
+            <span class="skill-tag">React.js</span>
+            <span class="skill-tag">Node.js</span>
+            <span class="skill-tag">Firebase</span>
+            <span class="skill-tag">MongoDB</span>
+          </div>
         </div>
       </div>
-      
-      <div class="skill-category">
-        <h4>ML & AI Frameworks</h4>
-        <div class="skill-tags">
-          <span class="skill-tag">PyTorch</span>
-          <span class="skill-tag">TorchRL</span>
-          <span class="skill-tag">Scikit-Learn</span>
-          <span class="skill-tag">NumPy</span>
-          <span class="skill-tag">Pandas</span>
-          <span class="skill-tag">OpenCV</span>
-          <span class="skill-tag">Hugging Face</span>
+    </section>
+
+    <!-- Education -->
+    <section id="education" class="section">
+      <h2>Education</h2>
+      <div class="experience-item" style="border: none; padding-bottom: 0;">
+        <div class="experience-header">
+          <div class="company-logo">GT</div>
+          <div class="experience-details">
+            <h3>B.S./M.S. Computer Science</h3>
+            <div class="company-name">Georgia Institute of Technology</div>
+          </div>
         </div>
+        <div class="location-date">Atlanta, GA | GPA: 4.0 | Graduation: Dec 2026</div>
       </div>
-      
-      <div class="skill-category">
-        <h4>Cloud & DevOps</h4>
-        <div class="skill-tags">
-          <span class="skill-tag">AWS</span>
-          <span class="skill-tag">GCP</span>
-          <span class="skill-tag">Azure</span>
-          <span class="skill-tag">Docker</span>
-          <span class="skill-tag">CI/CD</span>
-          <span class="skill-tag">Git</span>
-          <span class="skill-tag">Linux</span>
-        </div>
-      </div>
-      
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <p>© 2025 Tanishk Deo. Built with HTML, CSS, and passion for clean design.</p>
+    </footer>
+  </main>
+
+  <script>
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener("click", function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute("href"));
+        if (target) {
+          target.scrollIntoView({ 
+            behavior: "smooth",
+            block: "start"
+          });
+        }
+      });
+    });
+
+    // Add subtle scroll animations
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, observerOptions);
+
+    // Observe all sections for animation
+    document.querySelectorAll('.section').forEach(section => {
+      section.style.opacity = '0';
+      section.style.transform = 'translateY(20px)';
+      section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+      observer.observe(section);
+    });
+  </script>
+</body>
+</html>
