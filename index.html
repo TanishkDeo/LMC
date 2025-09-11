@@ -1,56 +1,225 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Alex — Personal Site</title>
-  <link rel="stylesheet" href="/styles.css" />
-  <meta name="description" content="Alex — web developer. Portfolio, about, and contact." />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tanishk Deo | Portfolio</title>
+  <style>
+    /* --- Base Styles --- */
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background: #f9fafb;
+    }
+    a {
+      color: #0073e6;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    h1, h2, h3 {
+      margin-top: 0;
+    }
+    section {
+      padding: 60px 20px;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    /* --- Header & Navigation --- */
+    header {
+      position: fixed;
+      width: 100%;
+      top: 0;
+      background: #fff;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+      z-index: 1000;
+    }
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 30px;
+    }
+    nav .links a {
+      margin-left: 20px;
+      font-weight: 500;
+    }
+
+    /* --- Hero Section --- */
+    .hero {
+      padding: 120px 20px 80px;
+      text-align: center;
+    }
+    .hero h1 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
+    .hero p {
+      font-size: 1.2rem;
+      color: #555;
+    }
+
+    /* --- Section Styling --- */
+    .card {
+      background: #fff;
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    }
+    .card h3 {
+      margin-bottom: 10px;
+      color: #0073e6;
+    }
+
+    /* --- Footer --- */
+    footer {
+      text-align: center;
+      padding: 30px;
+      background: #fff;
+      margin-top: 40px;
+      font-size: 0.9rem;
+      color: #666;
+    }
+  </style>
 </head>
 <body>
-  <header class="site-header">
-    <div class="container">
-      <a class="brand" href="/">alex</a>
-      <nav>
-        <a href="/about.html">About</a>
-        <a href="/contact.html">Contact</a>
-      </nav>
-    </div>
+  <!-- Header -->
+  <header>
+    <nav>
+      <div class="logo"><strong>Tanishk Deo</strong></div>
+      <div class="links">
+        <a href="#education">Education</a>
+        <a href="#experience">Experience</a>
+        <a href="#research">Research</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+      </div>
+    </nav>
   </header>
 
-  <main class="hero container">
-    <h1>Hi — I’m Alex 👋</h1>
-    <p class="lead">I build fast, accessible websites and experiment with modern web tooling.</p>
+  <!-- Hero -->
+  <section class="hero">
+    <h1>Hello, I'm Tanishk Deo</h1>
+    <p>Machine Learning Engineer | Software Developer | Researcher</p>
+    <p>
+      <a href="mailto:tanishk.deo@gmail.com">Email</a> | 
+      <a href="https://linkedin.com/in/tanishkdeo" target="_blank">LinkedIn</a> | 
+      <a href="https://github.com/TanishkDeo" target="_blank">GitHub</a>
+    </p>
+  </section>
 
-    <div class="buttons">
-      <a class="btn primary" href="/about.html">About me</a>
-      <a class="btn" href="/contact.html">Get in touch</a>
+  <!-- Education -->
+  <section id="education">
+    <h2>Education</h2>
+    <div class="card">
+      <h3>Georgia Institute of Technology</h3>
+      <p>B.S./M.S. Computer Science, GPA: 4.0 (Graduation: Dec 2026)</p>
+      <p>Atlanta, GA</p>
     </div>
+  </section>
 
-    <section class="cards">
-      <article class="card">
-        <h3>Work</h3>
-        <p>Building web apps with usability & performance in mind.</p>
-      </article>
-      <article class="card">
-        <h3>Writing</h3>
-        <p>Short posts about frontend tips and small experiments.</p>
-      </article>
-      <article class="card">
-        <h3>Hobbies</h3>
-        <p>Hiking, coffee, and tinkering with indie projects.</p>
-      </article>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <div class="container">
-      <small>© <span id="year"></span> Alex — <a href="/contact.html">Contact</a></small>
+  <!-- Experience -->
+  <section id="experience">
+    <h2>Experience</h2>
+    <div class="card">
+      <h3>Apple | Machine Learning Engineer Intern</h3>
+      <p>Seattle, WA | May 2025 – Aug 2025</p>
+      <ul>
+        <li>Research engineering for Applied LLMs: fine-tuning, multi-step RAG, tool calling.</li>
+      </ul>
     </div>
+    <div class="card">
+      <h3>Apple | Machine Learning Engineer Intern</h3>
+      <p>Seattle, WA | May 2024 – Aug 2024</p>
+      <ul>
+        <li>Engineered dynamic LLM inference routing in Swift/Obj-C for Siri.</li>
+        <li>Leveraged multimodal auto-eval agents for Siri data pipelines.</li>
+        <li>Released modular Siri MVVM architecture for iOS 18.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Emory Healthcare | Software Engineer Intern</h3>
+      <p>Atlanta, GA | May 2022 – Aug 2023</p>
+      <ul>
+        <li>Led development of medical apps deployed in pediatric hospitals.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Tenself LLC | Founder, Software Engineer</h3>
+      <p>Atlanta, GA | Dec 2019 – Jan 2021</p>
+      <ul>
+        <li>Developed and published iOS health apps with 10K+ downloads.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Research -->
+  <section id="research">
+    <h2>Research</h2>
+    <div class="card">
+      <h3>LIDAR Lab | ML Research for Robotics</h3>
+      <ul>
+        <li>Developed IRL framework integrating SAC, IRL, and BC.</li>
+        <li>Improved prediction model for robot path planning.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Ubicomp Health Lab | HCI & ML Research for Health</h3>
+      <ul>
+        <li>Designed mobile health app for lung health measurement.</li>
+        <li>Awarded IEEE Atlanta Section & Augusta University Awards.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="card">
+      <h3>Global KV Cache for LLM Inference</h3>
+      <p>Hugging Face, NVIDIA GPU Cloud, Docker</p>
+      <ul>
+        <li>Optimized KV cache for transformers, reducing inference times by 10%.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>OpenLend (HackGT)</h3>
+      <p>Python, Django REST, Go, Swift, Vertex AI</p>
+      <ul>
+        <li>Built P2P lending platform with Random Forest credit risk model (94% accuracy).</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Skills -->
+  <section id="skills">
+    <h2>Technical Skills</h2>
+    <div class="card">
+      <p><strong>Languages:</strong> Python, Swift, Java, Go, C/C++, SQL, Node.js, Kotlin, PostgreSQL, JavaScript, React.js</p>
+      <p><strong>Developer Tools:</strong> Git, AWS, GCP, Azure, Docker, CI/CD, Firebase, Linux, iOS, Android, MongoDB</p>
+      <p><strong>Libraries:</strong> NumPy, Pandas, SciPy, PyTorch, TorchRL, OpenCV, Scikit-Learn</p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    © 2025 Tanishk Deo. Built with HTML, CSS, and JS.
   </footer>
 
   <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
+    // Smooth scrolling
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener("click", function(e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute("href"))
+          .scrollIntoView({ behavior: "smooth" });
+      });
+    });
   </script>
 </body>
 </html>
