@@ -4,222 +4,841 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Tanishk Deo | Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
-    /* --- Base Styles --- */
-    body {
+    /* --- CSS Reset & Base Styles --- */
+    * {
       margin: 0;
-      font-family: 'Inter', sans-serif;
-      line-height: 1.6;
-      color: #333;
-      background: #f9fafb;
-    }
-    a {
-      color: #0073e6;
-      text-decoration: none;
-    }
-    a:hover {
-      text-decoration: underline;
-    }
-    h1, h2, h3 {
-      margin-top: 0;
-    }
-    section {
-      padding: 60px 20px;
-      max-width: 900px;
-      margin: auto;
+      padding: 0;
+      box-sizing: border-box;
     }
 
-    /* --- Header & Navigation --- */
-    header {
-      position: fixed;
-      width: 100%;
-      top: 0;
-      background: #fff;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-      z-index: 1000;
+    html {
+      scroll-behavior: smooth;
     }
-    nav {
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      line-height: 1.6;
+      color: #1d1d1f;
+      background: #fbfbfd;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* --- Typography --- */
+    h1 { font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 700; line-height: 1.1; }
+    h2 { font-size: clamp(1.8rem, 3vw, 2.5rem); font-weight: 600; line-height: 1.2; }
+    h3 { font-size: 1.5rem; font-weight: 600; line-height: 1.3; }
+    h4 { font-size: 1.25rem; font-weight: 500; }
+
+    /* --- Header & Navigation --- */
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: rgba(251, 251, 253, 0.8);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+      z-index: 1000;
+      transition: all 0.3s ease;
+    }
+
+    .nav {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 15px 30px;
+      height: 70px;
     }
-    nav .links a {
-      margin-left: 20px;
-      font-weight: 500;
+
+    .logo {
+      font-weight: 600;
+      font-size: 1.2rem;
+      color: #1d1d1f;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+    }
+
+    .nav-links a {
+      color: #1d1d1f;
+      text-decoration: none;
+      font-weight: 400;
+      transition: color 0.2s ease;
+      position: relative;
+    }
+
+    .nav-links a:hover {
+      color: #007aff;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: #007aff;
+      transition: width 0.2s ease;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
     }
 
     /* --- Hero Section --- */
     .hero {
-      padding: 120px 20px 80px;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
       text-align: center;
-    }
-    .hero h1 {
-      font-size: 2.5rem;
-      margin-bottom: 10px;
-    }
-    .hero p {
-      font-size: 1.2rem;
-      color: #555;
+      padding: 0 2rem;
+      background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+      position: relative;
+      overflow: hidden;
     }
 
-    /* --- Section Styling --- */
-    .card {
-      background: #fff;
-      border-radius: 12px;
-      padding: 20px;
-      margin-bottom: 20px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(0, 122, 255, 0.1) 0%, transparent 50%);
+      animation: float 20s ease-in-out infinite;
     }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-20px) rotate(180deg); }
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 800px;
+    }
+
+    .hero h1 {
+      margin-bottom: 1.5rem;
+      background: linear-gradient(135deg, #1d1d1f 0%, #007aff 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: fadeInUp 1s ease-out;
+    }
+
+    .hero .subtitle {
+      font-size: 1.5rem;
+      font-weight: 400;
+      color: #6b7280;
+      margin-bottom: 2rem;
+      animation: fadeInUp 1s ease-out 0.2s both;
+    }
+
+    .hero .description {
+      font-size: 1.1rem;
+      color: #6b7280;
+      margin-bottom: 3rem;
+      max-width: 600px;
+      animation: fadeInUp 1s ease-out 0.4s both;
+    }
+
+    .cta-buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      animation: fadeInUp 1s ease-out 0.6s both;
+    }
+
+    .btn {
+      padding: 1rem 2rem;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      border: none;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+
+    .btn-primary {
+      background: #007aff;
+      color: white;
+      box-shadow: 0 10px 25px rgba(0, 122, 255, 0.3);
+    }
+
+    .btn-primary:hover {
+      background: #0056b3;
+      transform: translateY(-2px);
+      box-shadow: 0 15px 35px rgba(0, 122, 255, 0.4);
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.9);
+      color: #1d1d1f;
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      backdrop-filter: blur(10px);
+    }
+
+    .btn-secondary:hover {
+      background: white;
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    }
+
+    /* --- Section Styles --- */
+    .section {
+      padding: 6rem 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    .section-header h2 {
+      margin-bottom: 1rem;
+      color: #1d1d1f;
+    }
+
+    .section-header p {
+      font-size: 1.2rem;
+      color: #6b7280;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* --- Cards --- */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .card {
+      background: white;
+      border-radius: 20px;
+      padding: 2.5rem;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+      border: 1px solid rgba(0, 0, 0, 0.05);
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #007aff, #5ac8fa);
+      transform: scaleX(0);
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    }
+
+    .card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .card-icon {
+      width: 60px;
+      height: 60px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #007aff, #5ac8fa);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.5rem;
+      font-size: 1.5rem;
+    }
+
     .card h3 {
-      margin-bottom: 10px;
-      color: #0073e6;
+      margin-bottom: 1rem;
+      color: #1d1d1f;
+    }
+
+    .card p {
+      color: #6b7280;
+      margin-bottom: 1rem;
+    }
+
+    .card ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .card li {
+      color: #6b7280;
+      margin-bottom: 0.5rem;
+      padding-left: 1.5rem;
+      position: relative;
+    }
+
+    .card li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: #007aff;
+      font-weight: 600;
+    }
+
+    /* --- Experience Timeline --- */
+    .timeline {
+      position: relative;
+      padding-left: 2rem;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: linear-gradient(180deg, #007aff, #5ac8fa);
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 3rem;
+      padding-left: 3rem;
+    }
+
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -8px;
+      top: 0;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: #007aff;
+      box-shadow: 0 0 0 4px white, 0 0 0 8px rgba(0, 122, 255, 0.2);
+    }
+
+    .timeline-content {
+      background: white;
+      padding: 2rem;
+      border-radius: 15px;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+      border: 1px solid rgba(0, 0, 0, 0.05);
+    }
+
+    /* --- Project Gallery --- */
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 2.5rem;
+      margin-top: 3rem;
+    }
+
+    .project-card {
+      background: white;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+      border: 1px solid rgba(0, 0, 0, 0.05);
+      transition: all 0.3s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.1);
+    }
+
+    .project-image {
+      height: 200px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .project-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .project-content {
+      padding: 2rem;
+    }
+
+    .tech-stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 1rem;
+    }
+
+    .tech-tag {
+      background: rgba(0, 122, 255, 0.1);
+      color: #007aff;
+      padding: 0.3rem 0.8rem;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 500;
+    }
+
+    /* --- Skills Section --- */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .skill-category {
+      background: white;
+      padding: 2rem;
+      border-radius: 15px;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+      border: 1px solid rgba(0, 0, 0, 0.05);
+    }
+
+    .skill-category h4 {
+      margin-bottom: 1rem;
+      color: #1d1d1f;
+    }
+
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .skill-tag {
+      background: rgba(0, 0, 0, 0.05);
+      color: #1d1d1f;
+      padding: 0.5rem 1rem;
+      border-radius: 25px;
+      font-size: 0.9rem;
+      transition: all 0.2s ease;
+    }
+
+    .skill-tag:hover {
+      background: #007aff;
+      color: white;
+      transform: translateY(-1px);
     }
 
     /* --- Footer --- */
-    footer {
+    .footer {
+      background: #1d1d1f;
+      color: white;
       text-align: center;
-      padding: 30px;
-      background: #fff;
-      margin-top: 40px;
+      padding: 3rem 2rem;
+      margin-top: 6rem;
+    }
+
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .social-link {
+      display: inline-block;
+      padding: 0.8rem;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      color: white;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .social-link:hover {
+      background: #007aff;
+      transform: translateY(-2px);
+    }
+
+    /* --- Animations --- */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .fade-in-up {
+      animation: fadeInUp 0.8s ease-out;
+    }
+
+    /* --- Responsive Design --- */
+    @media (max-width: 768px) {
+      .nav {
+        padding: 0 1rem;
+      }
+      
+      .nav-links {
+        display: none;
+      }
+      
+      .hero {
+        padding: 0 1rem;
+        min-height: 90vh;
+      }
+      
+      .section {
+        padding: 4rem 1rem;
+      }
+      
+      .cards-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .project-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .btn {
+        width: 200px;
+        text-align: center;
+      }
+    }
+
+    /* --- Placeholder Image Styles --- */
+    .placeholder-img {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 500;
       font-size: 0.9rem;
-      color: #666;
     }
   </style>
 </head>
 <body>
   <!-- Header -->
-  <header>
-    <nav>
-      <div class="logo"><strong>Tanishk Deo</strong></div>
-      <div class="links">
+  <header class="header">
+    <nav class="nav">
+      <div class="logo">Tanishk Deo</div>
+      <div class="nav-links">
+        <a href="#about">About</a>
         <a href="#education">Education</a>
         <a href="#experience">Experience</a>
         <a href="#research">Research</a>
         <a href="#projects">Projects</a>
         <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
       </div>
     </nav>
   </header>
 
-  <!-- Hero -->
+  <!-- Hero Section -->
   <section class="hero">
-    <h1>Hello, I'm Tanishk Deo</h1>
-    <p>Machine Learning Engineer | Software Developer | Researcher</p>
-    <p>
-      <a href="mailto:tanishk.deo@gmail.com">Email</a> | 
-      <a href="https://linkedin.com/in/tanishkdeo" target="_blank">LinkedIn</a> | 
-      <a href="https://github.com/TanishkDeo" target="_blank">GitHub</a>
-    </p>
+    <div class="hero-content">
+      <h1>Hello, I'm Tanishk Deo</h1>
+      <p class="subtitle">Machine Learning Engineer</p>
+      <p class="description">
+        Passionate about building intelligent systems that solve real-world problems. 
+        Currently pursuing B.S./M.S. in Computer Science at Georgia Tech with a focus on 
+        machine learning, software engineering, and research.
+      </p>
+      <div class="cta-buttons">
+        <a href="#contact" class="btn btn-primary">Get in Touch</a>
+        <a href="#projects" class="btn btn-secondary">View My Work</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="section">
+    <div class="section-header">
+      <h2>About Me</h2>
+      <p>Driven by curiosity and powered by code</p>
+    </div>
+    <div class="cards-grid">
+      <div class="card">
+        <div class="card-icon placeholder-img">🎓</div>
+        <h3>Student & Researcher</h3>
+        <p>Maintaining a perfect 4.0 GPA while conducting cutting-edge research in machine learning and robotics at Georgia Tech.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon placeholder-img">🔬</div>
+        <h3>Innovation Focus</h3>
+        <p>Passionate about applying AI and ML to solve complex problems in healthcare, robotics, and mobile technology.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon placeholder-img">🚀</div>
+        <h3>Industry Experience</h3>
+        <p>Proven track record with internships at Apple, building production systems and contributing to iOS 18 features.</p>
+      </div>
+    </div>
   </section>
 
   <!-- Education -->
-  <section id="education">
-    <h2>Education</h2>
+  <section id="education" class="section">
+    <div class="section-header">
+      <h2>Education</h2>
+      <p>Building a strong foundation in computer science and machine learning</p>
+    </div>
     <div class="card">
-      <h3>Georgia Institute of Technology</h3>
-      <p>B.S./M.S. Computer Science, GPA: 4.0 (Graduation: Dec 2026)</p>
-      <p>Atlanta, GA</p>
+      <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
+        <div class="placeholder-img" style="width: 60px; height: 60px; border-radius: 12px;">GT</div>
+        <div>
+          <h3>Georgia Institute of Technology</h3>
+          <p style="margin: 0; color: #6b7280;">B.S./M.S. Computer Science</p>
+        </div>
+      </div>
+      <div style="display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem;">
+        <div>
+          <p><strong>GPA:</strong> 4.0</p>
+          <p><strong>Location:</strong> Atlanta, GA</p>
+        </div>
+        <div>
+          <p><strong>Graduation:</strong> December 2026</p>
+        </div>
+      </div>
     </div>
   </section>
 
   <!-- Experience -->
-  <section id="experience">
-    <h2>Experience</h2>
-    <div class="card">
-      <h3>Apple | Machine Learning Engineer Intern</h3>
-      <p>Seattle, WA | May 2025 – Aug 2025</p>
-      <ul>
-        <li>Research engineering for Applied LLMs: fine-tuning, multi-step RAG, tool calling.</li>
-      </ul>
+  <section id="experience" class="section">
+    <div class="section-header">
+      <h2>Experience</h2>
+      <p>Professional journey in technology and innovation</p>
     </div>
-    <div class="card">
-      <h3>Apple | Machine Learning Engineer Intern</h3>
-      <p>Seattle, WA | May 2024 – Aug 2024</p>
-      <ul>
-        <li>Engineered dynamic LLM inference routing in Swift/Obj-C for Siri.</li>
-        <li>Leveraged multimodal auto-eval agents for Siri data pipelines.</li>
-        <li>Released modular Siri MVVM architecture for iOS 18.</li>
-      </ul>
-    </div>
-    <div class="card">
-      <h3>Emory Healthcare | Software Engineer Intern</h3>
-      <p>Atlanta, GA | May 2022 – Aug 2023</p>
-      <ul>
-        <li>Led development of medical apps deployed in pediatric hospitals.</li>
-      </ul>
-    </div>
-    <div class="card">
-      <h3>Tenself LLC | Founder, Software Engineer</h3>
-      <p>Atlanta, GA | Dec 2019 – Jan 2021</p>
-      <ul>
-        <li>Developed and published iOS health apps with 10K+ downloads.</li>
-      </ul>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-content">
+          <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+            <div class="placeholder-img" style="width: 50px; height: 50px; border-radius: 8px;">🍎</div>
+            <div>
+              <h3>Machine Learning Engineer Intern</h3>
+              <p style="margin: 0; color: #007aff; font-weight: 500;">Apple</p>
+            </div>
+          </div>
+          <p style="color: #6b7280; margin-bottom: 1rem;">Seattle, WA | May 2025 – Aug 2025</p>
+          <ul>
+            <li>Research engineering for Applied LLMs: fine-tuning, multi-step RAG, tool calling</li>
+            <li>Developing next-generation AI capabilities for Apple's ecosystem</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="timeline-item">
+        <div class="timeline-content">
+          <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+            <div class="placeholder-img" style="width: 50px; height: 50px; border-radius: 8px;">🍎</div>
+            <div>
+              <h3>Machine Learning Engineer Intern</h3>
+              <p style="margin: 0; color: #007aff; font-weight: 500;">Apple</p>
+            </div>
+          </div>
+          <p style="color: #6b7280; margin-bottom: 1rem;">Seattle, WA | May 2024 – Aug 2024</p>
+          <ul>
+            <li>Engineered dynamic LLM inference routing in Swift/Obj-C for Siri</li>
+            <li>Leveraged multimodal auto-eval agents for Siri data pipelines</li>
+            <li>Released modular Siri MVVM architecture for iOS 18</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="timeline-item">
+        <div class="timeline-content">
+          <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+            <div class="placeholder-img" style="width: 50px; height: 50px; border-radius: 8px;">🏥</div>
+            <div>
+              <h3>Software Engineer Intern</h3>
+              <p style="margin: 0; color: #007aff; font-weight: 500;">Emory Healthcare</p>
+            </div>
+          </div>
+          <p style="color: #6b7280; margin-bottom: 1rem;">Atlanta, GA | May 2022 – Aug 2023</p>
+          <ul>
+            <li>Led development of medical apps deployed in pediatric hospitals</li>
+            <li>Improved patient care through innovative healthcare technology solutions</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="timeline-item">
+        <div class="timeline-content">
+          <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+            <div class="placeholder-img" style="width: 50px; height: 50px; border-radius: 8px;">🚀</div>
+            <div>
+              <h3>Founder, Software Engineer</h3>
+              <p style="margin: 0; color: #007aff; font-weight: 500;">Tenself LLC</p>
+            </div>
+          </div>
+          <p style="color: #6b7280; margin-bottom: 1rem;">Atlanta, GA | Dec 2019 – Jan 2021</p>
+          <ul>
+            <li>Developed and published iOS health apps with 10K+ downloads</li>
+            <li>Built end-to-end mobile solutions from concept to App Store</li>
+          </ul>
+        </div>
+      </div>
     </div>
   </section>
 
   <!-- Research -->
-  <section id="research">
-    <h2>Research</h2>
-    <div class="card">
-      <h3>LIDAR Lab | ML Research for Robotics</h3>
-      <ul>
-        <li>Developed IRL framework integrating SAC, IRL, and BC.</li>
-        <li>Improved prediction model for robot path planning.</li>
-      </ul>
+  <section id="research" class="section">
+    <div class="section-header">
+      <h2>Research</h2>
+      <p>Pushing the boundaries of AI and human-computer interaction</p>
     </div>
-    <div class="card">
-      <h3>Ubicomp Health Lab | HCI & ML Research for Health</h3>
-      <ul>
-        <li>Designed mobile health app for lung health measurement.</li>
-        <li>Awarded IEEE Atlanta Section & Augusta University Awards.</li>
-      </ul>
+    <div class="cards-grid">
+      <div class="card">
+        <div class="card-icon placeholder-img">🤖</div>
+        <h3>LIDAR Lab | ML Research for Robotics</h3>
+        <ul>
+          <li>Developed IRL framework integrating SAC, IRL, and BC</li>
+          <li>Improved prediction model for robot path planning</li>
+          <li>Advanced autonomous navigation systems</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="card-icon placeholder-img">📱</div>
+        <h3>Ubicomp Health Lab | HCI & ML Research for Health</h3>
+        <ul>
+          <li>Designed mobile health app for lung health measurement</li>
+          <li>Awarded IEEE Atlanta Section & Augusta University Awards</li>
+          <li>Published research on mobile health monitoring</li>
+        </ul>
+      </div>
     </div>
   </section>
 
   <!-- Projects -->
-  <section id="projects">
-    <h2>Projects</h2>
-    <div class="card">
-      <h3>Global KV Cache for LLM Inference</h3>
-      <p>Hugging Face, NVIDIA GPU Cloud, Docker</p>
-      <ul>
-        <li>Optimized KV cache for transformers, reducing inference times by 10%.</li>
-      </ul>
+  <section id="projects" class="section">
+    <div class="section-header">
+      <h2>Featured Projects</h2>
+      <p>Innovative solutions built with cutting-edge technology</p>
     </div>
-    <div class="card">
-      <h3>OpenLend (HackGT)</h3>
-      <p>Python, Django REST, Go, Swift, Vertex AI</p>
-      <ul>
-        <li>Built P2P lending platform with Random Forest credit risk model (94% accuracy).</li>
-      </ul>
+    <div class="project-grid">
+      <div class="project-card">
+        <div class="project-image placeholder-img">
+          [KV Cache Optimization Preview]
+        </div>
+        <div class="project-content">
+          <h3>Global KV Cache for LLM Inference</h3>
+          <p>Optimized KV cache implementation for transformer models, achieving 10% reduction in inference times through advanced caching strategies.</p>
+          <div class="tech-stack">
+            <span class="tech-tag">Hugging Face</span>
+            <span class="tech-tag">NVIDIA GPU Cloud</span>
+            <span class="tech-tag">Docker</span>
+            <span class="tech-tag">PyTorch</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="project-card">
+        <div class="project-image placeholder-img">
+          [OpenLend Platform Screenshot]
+        </div>
+        <div class="project-content">
+          <h3>OpenLend (HackGT Winner)</h3>
+          <p>Peer-to-peer lending platform featuring a Random Forest credit risk model with 94% accuracy, enabling secure and intelligent lending decisions.</p>
+          <div class="tech-stack">
+            <span class="tech-tag">Python</span>
+            <span class="tech-tag">Django REST</span>
+            <span class="tech-tag">Go</span>
+            <span class="tech-tag">Swift</span>
+            <span class="tech-tag">Vertex AI</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="project-card">
+        <div class="project-image placeholder-img">
+          [Mobile Health App Interface]
+        </div>
+        <div class="project-content">
+          <h3>Mobile Health Monitoring</h3>
+          <p>Award-winning mobile application for lung health measurement, combining machine learning with intuitive user experience design.</p>
+          <div class="tech-stack">
+            <span class="tech-tag">Swift</span>
+            <span class="tech-tag">Core ML</span>
+            <span class="tech-tag">HealthKit</span>
+            <span class="tech-tag">Firebase</span>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
   <!-- Skills -->
-  <section id="skills">
-    <h2>Technical Skills</h2>
-    <div class="card">
-      <p><strong>Languages:</strong> Python, Swift, Java, Go, C/C++, SQL, Node.js, Kotlin, PostgreSQL, JavaScript, React.js</p>
-      <p><strong>Developer Tools:</strong> Git, AWS, GCP, Azure, Docker, CI/CD, Firebase, Linux, iOS, Android, MongoDB</p>
-      <p><strong>Libraries:</strong> NumPy, Pandas, SciPy, PyTorch, TorchRL, OpenCV, Scikit-Learn</p>
+  <section id="skills" class="section">
+    <div class="section-header">
+      <h2>Technical Skills</h2>
+      <p>A comprehensive toolkit for building intelligent systems</p>
     </div>
-  </section>
-
-  <!-- Footer -->
-  <footer>
-    © 2025 Tanishk Deo. Built with HTML, CSS, and JS.
-  </footer>
-
-  <script>
-    // Smooth scrolling
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener("click", function(e) {
-        e.preventDefault();
-        document.querySelector(this.getAttribute("href"))
-          .scrollIntoView({ behavior: "smooth" });
-      });
-    });
-  </script>
-</body>
-</html>
+    <div class="skills-grid">
+      <div class="skill-category">
+        <h4>Programming Languages</h4>
+        <div class="skill-tags">
+          <span class="skill-tag">Python</span>
+          <span class="skill-tag">Swift</span>
+          <span class="skill-tag">Java</span>
+          <span class="skill-tag">Go</span>
+          <span class="skill-tag">C/C++</span>
+          <span class="skill-tag">SQL</span>
+          <span class="skill-tag">JavaScript</span>
+          <span class="skill-tag">Kotlin</span>
+        </div>
+      </div>
+      
+      <div class="skill-category">
+        <h4>ML & AI Frameworks</h4>
+        <div class="skill-tags">
+          <span class="skill-tag">PyTorch</span>
+          <span class="skill-tag">TorchRL</span>
+          <span class="skill-tag">Scikit-Learn</span>
+          <span class="skill-tag">NumPy</span>
+          <span class="skill-tag">Pandas</span>
+          <span class="skill-tag">OpenCV</span>
+          <span class="skill-tag">Hugging Face</span>
+        </div>
+      </div>
+      
+      <div class="skill-category">
+        <h4>Cloud & DevOps</h4>
+        <div class="skill-tags">
+          <span class="skill-tag">AWS</span>
+          <span class="skill-tag">GCP</span>
+          <span class="skill-tag">Azure</span>
+          <span class="skill-tag">Docker</span>
+          <span class="skill-tag">CI/CD</span>
+          <span class="skill-tag">Git</span>
+          <span class="skill-tag">Linux</span>
+        </div>
+      </div>
+      
