@@ -156,6 +156,22 @@
       color: #333;
       font-size: 0.95rem;
     }
+      .project-image {
+    height: 140px;
+    background: #f9f9f9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .project-img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    border-radius: 4px;
+  }
+
 
     .badge {
       display: inline-block;
@@ -533,7 +549,7 @@
             <div class="company-name">Apple</div>
           </div>
         </div>
-        <div class="location-date">Seattle, WA | May 2025 – Aug 2025</div>
+        <div class="location-date">Cupertino, CA | May 2025 – Aug 2025</div>
         <ul>
           <li>Research engineering for Applied LLMs: fine-tuning, multi-step RAG, tool calling</li>
           <li>Developed next-generation AI capabilities for Apple's ecosystem</li>
@@ -604,7 +620,62 @@
 
     <!-- Projects -->
     <!-- Projects -->
+<!-- Projects -->
 <section id="projects" class="section">
+  <h2>Projects</h2>
+  <div class="projects-grid">
+
+    <div class="project-card">
+      <div class="project-image">
+        <img src="gkv.png" alt="Global KV Cache Project" class="project-img">
+      </div>
+      <div class="project-content">
+        <h3><a href="https://github.com/SamuelShao1/GKVCache" target="_blank">Global KV Cache for LLM Inference</a></h3>
+        <p>Optimized KV cache implementation for transformer models, achieving ~10% reduction in inference times through advanced caching strategies.</p>
+        <div class="tech-stack">
+          <span class="tech-tag">Hugging Face</span>
+          <span class="tech-tag">NVIDIA GPU Cloud</span>
+          <span class="tech-tag">Docker</span>
+        </div>
+      </div>
+    </div>
+    
+    <div class="project-card">
+      <div class="project-image">
+        <img src="lend.png" alt="OpenLend Project" class="project-img">
+      </div>
+      <div class="project-content">
+        <h3><a href="https://devpost.com/software/openlend" target="_blank">OpenLend (HackGT)</a></h3>
+        <p>P2P lending platform with Random Forest credit risk model achieving 94% accuracy for intelligent lending decisions.</p>
+        <div class="tech-stack">
+          <span class="tech-tag">Python</span>
+          <span class="tech-tag">Django REST</span>
+          <span class="tech-tag">Go</span>
+          <span class="tech-tag">Swift</span>
+          <span class="tech-tag">Vertex AI</span>
+        </div>
+      </div>
+    </div>
+    
+    <div class="project-card">
+      <div class="project-image">
+        <img src="irl.png" alt="IRL Robotics Project" class="project-img">
+      </div>
+      <div class="project-content">
+        <h3><a href="https://lab-idar.gatech.edu/infer-and-adapt-bipedal-locomotion-reward-learning-fromdemonstrations-via-inverse-reinforcement-learning/" target="_blank">IRL: Bipedal Locomotion via Reward Learning</a></h3>
+        <p>Inverse Reinforcement Learning system to infer and adapt bipedal locomotion behaviors from demonstrations. Developed under Georgia Tech’s Infer & Adapt Lab.</p>
+        <div class="tech-stack">
+          <span class="tech-tag">RL</span>
+          <span class="tech-tag">IRL</span>
+          <span class="tech-tag">Robotics</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
   <h2>Projects</h2>
   <div class="projects-grid">
 
