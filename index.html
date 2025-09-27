@@ -73,15 +73,6 @@
       color: #333;
     }
 
-    .profile-pic {
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  object-fit: cover;
-  margin-bottom: 1rem;
-  border: 2px solid #6B46C1; /* optional: adds a purple border */
-}
-
     .nav-links {
       display: flex;
       gap: 2rem;
@@ -112,22 +103,36 @@
       text-align: left;
     }
 
-    .hero h1 {
-      color: #333;
-      margin-bottom: 1rem;
+    .hero-content {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
     }
 
-    .hero .subtitle {
+    .profile-pic {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid #6B46C1;
+      flex-shrink: 0;
+    }
+
+    .hero-text h1 {
+      color: #333;
+      margin-bottom: 0.5rem;
+    }
+
+    .hero-text .subtitle {
       font-size: 1.1rem;
       font-weight: 400;
       color: #666;
-      margin-bottom: 2rem;
+      margin-bottom: 1rem;
     }
 
     .contact-links {
       display: flex;
       gap: 1rem;
-      margin-top: 1rem;
     }
 
     .contact-links a {
@@ -451,6 +456,17 @@
       .hero {
         padding: 1rem 0 2rem 0;
       }
+
+      .hero-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 1rem;
+      }
+
+      .hero-text .subtitle {
+        margin-bottom: 1rem;
+      }
       
       .experience-header {
         flex-direction: column;
@@ -488,23 +504,27 @@
   <!-- Main Content -->
   <main class="main">
     <!-- Hero Section -->
-        <!-- Hero Section -->
     <section class="hero" id="about">
-      <img src="type.png" alt="Tanishk Deo" class="profile-pic">
-      <h1>Tanishk Deo</h1>
-      <p class="subtitle">Machine Learning Engineer | Software Developer | Researcher</p>
-      <div class="contact-links">
-        <a href="mailto:tanishk.deo@gmail.com">email</a>
-        <a href="https://linkedin.com/in/tanishkdeo" target="_blank">linkedin</a>
-        <a href="https://github.com/TanishkDeo" target="_blank">github</a>
+      <div class="hero-content">
+        <img src="type.png" alt="Tanishk Deo" class="profile-pic">
+        <div class="hero-text">
+          <h1>Tanishk Deo</h1>
+          <p class="subtitle">Machine Learning Engineer | Software Developer | Researcher</p>
+          <div class="contact-links">
+            <a href="mailto:tanishk.deo@gmail.com">email</a>
+            <a href="https://linkedin.com/in/tanishkdeo" target="_blank">linkedin</a>
+            <a href="https://github.com/TanishkDeo" target="_blank">github</a>
+          </div>
+        </div>
       </div>
     </section>
+
 
     <!-- About Me -->
     <section id="about-me" class="section">
       <h2>About Me</h2>
       <p>
-        I’m a BS/MS Computer Science student at Georgia Tech graduating in December 2026 with a passion for building intelligent systems that enhance human capability. 
+        I'm a BS/MS Computer Science student at Georgia Tech graduating in December 2026 with a passion for building intelligent systems that enhance human capability. 
         My work spans applied AI, healthcare technology, and robotics. I enjoy bridging research and engineering to develop impactful, 
         production-ready solutions. I last interned at Apple on the Applied AI team as a research engineer, focusing on large language models and AI capabilities for Siri. I have a broad interest in machine learning, statistics, and software engineering.
       </p>
@@ -674,7 +694,7 @@
       </div>
       <div class="project-content">
         <h3><a href="https://lab-idar.gatech.edu/infer-and-adapt-bipedal-locomotion-reward-learning-fromdemonstrations-via-inverse-reinforcement-learning/" target="_blank">IRL: Bipedal Locomotion via Reward Learning</a></h3>
-        <p>Inverse Reinforcement Learning system to infer and adapt bipedal locomotion behaviors from demonstrations. Developed under Georgia Tech’s Infer & Adapt Lab.</p>
+        <p>Inverse Reinforcement Learning system to infer and adapt bipedal locomotion behaviors from demonstrations. Developed under Georgia Tech's Infer & Adapt Lab.</p>
         <div class="tech-stack">
           <span class="tech-tag">RL</span>
           <span class="tech-tag">IRL</span>
